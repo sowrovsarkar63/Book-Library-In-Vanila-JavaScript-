@@ -24,11 +24,13 @@
         <section class="container ">
             <!-- Search form  -->
             <div class="input-group mb-3 w-75 mx-auto">
-                <input type="text" class="form-control" placeholder="Search Book" aria-label="search"
+                <input id="search-text" type="text" class="form-control" placeholder="Search Book" aria-label="search"
                     aria-describedby="search-btn">
-                <button onclick="searchText()" class="btn btn-danger" id="search-btn">Search</button>
+                <button onclick="searchBook()" class="btn btn-danger" id="search-btn">Search</button>
             </div>
-
+            <div class="text-center">
+                <p id="showError" class="text-warning"></p>
+            </div>
             <div class="text-center d-none">
                 <span id="numberOfResult">0 found</span>
             </div>
