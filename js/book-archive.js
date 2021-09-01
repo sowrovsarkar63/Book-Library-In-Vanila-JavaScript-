@@ -1,5 +1,7 @@
 
-/* ------get input value  function 
+/*====================
+get input value  function 
+==================
  */
 const getInputValue = input =>{
     const inputById =  document.getElementById(input);
