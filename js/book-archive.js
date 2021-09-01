@@ -9,7 +9,7 @@ const getInputValue = input =>{
 search book fucntiond
 =================
 */
-const searchBook = ()=>{
+const searchBook = () => {
     // get search input value 
    const inputFieldText = getInputValue("search-text");
    const removeResult = getInputValue("SearchResult");
