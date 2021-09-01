@@ -43,10 +43,10 @@ empty input error
        const url = `http://openlibrary.org/search.json?q=${searchText}`;
        fetch(url)
        .then(res => res.json())
-       .then(searchResult => DisplayResult(searchResult.docs)); //debuging and understanding the api and the response 
-      
-       /* ========================
-show spinner 
+       .then(searchResult => DisplayResult(searchResult.docs)); 
+
+ /* ========================
+    show spinner 
 =================
 */
        showspinner.classList.remove("d-none");
