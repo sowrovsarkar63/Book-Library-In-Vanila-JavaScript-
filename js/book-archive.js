@@ -1,19 +1,38 @@
+
+/* ------get input value  function 
+ */
+const getInputValue = input =>{
+    const inputById =  document.getElementById(input);
+    return inputById;
+}
+/* ========================
+search book fucntiond
+=================
+*/
 const searchBook = ()=>{
     // get search input value 
-   const inputFieldText = document.getElementById("search-text");
-   const removeResult = document.getElementById("SearchResult");
-   const numberOfResult = document.getElementById("numberOfResult");
-   const resultNotFound =  document.getElementById("not-found");
+   const inputFieldText = getInputValue("search-text");
+   const removeResult = getInputValue("SearchResult");
+   const numberOfResult = getInputValue("numberOfResult");
+   const resultNotFound =  getInputValue("not-found");
+   const showspinner = getInputValue("showspinner");
 
-//    removea and hide  element 
+/* ========================
+remove and hide element 
+=================
+*/
 removeResult.textContent = "";
 numberOfResult.classList.add("d-none");//hide number of result when new search 
 resultNotFound.innerText = "";
+removeResult.innerText = "";
 
-    removeResult.innerText = "";
+
    const searchText =  inputFieldText.value;
-   //get error space 
-   const ShowError =  document.getElementById("showError");
+   /* ========================
+empty input error 
+=================
+*/
+   const ShowError = getInputValue("showError");
    if(searchText === ""){
        ShowError.innerText ="You din't write anything in the search box";
    }else{
@@ -25,23 +44,37 @@ resultNotFound.innerText = "";
        fetch(url)
        .then(res => res.json())
        .then(searchResult => DisplayResult(searchResult.docs)); //debuging and understanding the api and the response 
+      
+       /* ========================
+show spinner 
+=================
+*/
+       showspinner.classList.remove("d-none");
 
    }
    inputFieldText.value = "";
+  
+
 }
 
-
+/* ========================
+display result 
+=================
+*/
 const DisplayResult  = (searchResult)=>{
-    // get number of search result 
-    const numberOfResult = document.getElementById("numberOfResult");
-   
+    // get input value 
+    const numberOfResult = getInputValue("numberOfResult");
+    const showspinner = getInputValue("showspinner");
+    // hide spinner after loading the page 
+    showspinner.classList.add('d-none');
+
     // show search not found 
-    const resultNotFound =  document.getElementById("not-found");
+    const resultNotFound = getInputValue("not-found");
     if (searchResult.length === 0){
         resultNotFound.innerText = "Result Not Found !! ";
     }else{
-        numberOfResult.classList.remove("d-none");
         // display number of search 
+        numberOfResult.classList.remove("d-none");
         numberOfResult.innerText =  `${searchResult.length} results found `;
     }
 
@@ -49,9 +82,9 @@ const DisplayResult  = (searchResult)=>{
     const GetlimitedResult =  searchResult.slice(0,8);
 
     //display search  result 
-   const ResultContainer = document.getElementById("SearchResult");
+   const ResultContainer =getInputValue("SearchResult");
     GetlimitedResult.forEach(result => {
-        //create html 
+        //create html element 
         const col = document.createElement("div");
         col.classList.add("col");
         col.innerHTML = `
@@ -67,9 +100,17 @@ const DisplayResult  = (searchResult)=>{
     </div>
         
         `;
-        // append all the html that created via js
+        // append all the html element that created via js
 ResultContainer.appendChild(col);
 
     });
 
 }
+
+
+
+/* ==================================
+
++++++++++++++++(((((((Md Sowrov Sarkar)))))))) ++++++++++++++++++++++++++++++++
+
+=================================================*/

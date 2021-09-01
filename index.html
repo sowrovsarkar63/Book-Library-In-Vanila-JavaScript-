@@ -28,18 +28,33 @@
                     aria-describedby="search-btn">
                 <button onclick="searchBook()" class="btn btn-danger" id="search-btn">Search</button>
             </div>
+            <!-- show loader -->
+            <div class="text-center d-none" id="showspinner">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+
+            <!-- if user search irrelevan thing and search result not foub -->
             <div class="text-center">
                 <p id="not-found" class="text-danger"></p>
             </div>
+            <!-- If user don't enter any input  -->
             <div class="text-center">
                 <p id="showError" class="text-warning"></p>
             </div>
+            <!-- show the number of result  -->
             <div class="text-center">
-                <span class="d-none " id="numberOfResult"></span>
+                <span class="d-none text-primary " id="numberOfResult"></span>
             </div>
+
+
         </section>
+
+
         <section class="container mt-5">
-            <div class="row row-cols-1 row-cols-md-3 g-4" id="SearchResult">
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 " id="SearchResult">
                 <!-- Here The Search Result Element Will be Created daynamically -->
             </div>
         </section>
