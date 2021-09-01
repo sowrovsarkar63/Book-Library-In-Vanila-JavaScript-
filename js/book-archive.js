@@ -78,8 +78,8 @@ const DisplayResult  = (searchResult)=>{
         numberOfResult.innerText =  `${searchResult.length} results found `;
     }
 
-    // disply 8 results in the page 
-    const GetlimitedResult =  searchResult.slice(0,8);
+    // disply 5 results in the page 
+    const GetlimitedResult =  searchResult.slice(0,6);
 
     //display search  result 
    const ResultContainer =getInputValue("SearchResult");
@@ -88,8 +88,10 @@ const DisplayResult  = (searchResult)=>{
         const col = document.createElement("div");
         col.classList.add("col");
         col.innerHTML = `
-        <div class="card h-20">
-        <img src=" https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg" class="card-img-top img-thumbnail"  >
+        <div class="card">
+     
+        <img src=" https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg" class="card-img-top img-fluid"  >
+     
         <div class="card-body">
             <h6 class="card-title">${result.title} By (${result.author_name[0]})</h6>
             <p class="card-text">Published at ${(result.first_publish_year )?result.first_publish_year : "Not found"}</p>
